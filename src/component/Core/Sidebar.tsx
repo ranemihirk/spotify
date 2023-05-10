@@ -1,4 +1,5 @@
 import * as React from "react";
+import { NavLink } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,7 +15,7 @@ import {
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 
 type SideBarProps = {
-	isLargeScreen: boolean;
+  isLargeScreen: boolean;
 };
 
 const mainMenu = [
@@ -25,12 +26,12 @@ const mainMenu = [
   },
   {
     title: "Search",
-    url: "/",
+    url: "search",
     icon: <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />,
   },
   {
     title: "Your Library",
-    url: "/",
+    url: "library",
     icon: <FontAwesomeIcon icon={faHistory} size="lg" />,
   },
 ];
@@ -38,12 +39,12 @@ const mainMenu = [
 const secondaryMainMenu = [
   {
     title: "Create Playlist",
-    url: "/",
+    url: "create-playlist",
     icon: <FontAwesomeIcon icon={faSquarePlus} size="lg" />,
   },
   {
     title: "Liked Songs",
-    url: "/",
+    url: "liked-songs",
     icon: <FontAwesomeIcon icon={faShieldHeart} size="lg" />,
   },
 ];
@@ -51,50 +52,53 @@ const secondaryMainMenu = [
 const tertiaryMainMenu = [
   {
     title: "Legal",
-    url: "/",
+    url: "legal",
     icon: <FontAwesomeIcon icon={faSquarePlus} size="lg" />,
   },
   {
     title: "Privacy Center",
-    url: "/",
+    url: "privacy-center",
     icon: <FontAwesomeIcon icon={faShieldHeart} size="lg" />,
   },
   {
     title: "Privacy Policy",
-    url: "/",
+    url: "privacy-policy",
     icon: <FontAwesomeIcon icon={faShieldHeart} size="lg" />,
   },
   {
     title: "Cookies",
-    url: "/",
+    url: "cookies",
     icon: <FontAwesomeIcon icon={faShieldHeart} size="lg" />,
   },
   {
     title: "About Ads",
-    url: "/",
+    url: "about-ads",
     icon: <FontAwesomeIcon icon={faShieldHeart} size="lg" />,
   },
   {
     title: "Cookies",
-    url: "/",
+    url: "cookies",
     icon: <FontAwesomeIcon icon={faShieldHeart} size="lg" />,
   },
 ];
 
-export default function Sidebar({isLargeScreen}:SideBarProps): JSX.Element {
+export default function Sidebar({ isLargeScreen }: SideBarProps): JSX.Element {
   return (
     <div
       className={`sidebar flex flex-col items-stretch bg-stone-950 text-new-white shadow-2xl ${
-        isLargeScreen ? "w-[18%] px-6 py-6" : "w-min px-2 py-2"
+        isLargeScreen ? "w-[30%] max-w-[30%] px-6 py-6" : "w-min px-2 py-2"
       }`}
     >
       <div>
         <div className="font-bold mb-6 flex items-center">
           <FontAwesomeIcon icon={faSpotify} className="text-[2.5rem]" />{" "}
-          <span className={`${isLargeScreen ? "ml-2" : "hidden"} text-2xl`}>Spotify</span>
+          <span className={`${isLargeScreen ? "ml-2" : "hidden"} text-2xl`}>
+            Spotify
+          </span>
         </div>
         {mainMenu.map((item, i) => (
-          <div
+          <NavLink
+            to={item.url}
             key={i}
             className={`flex items-center py-1 my-2 cursor-pointer ${
               isLargeScreen ? "" : "justify-center"
@@ -104,11 +108,12 @@ export default function Sidebar({isLargeScreen}:SideBarProps): JSX.Element {
             <h4 className={`${isLargeScreen ? "ml-4 " : "hidden"}`}>
               {item.title}
             </h4>
-          </div>
+          </NavLink>
         ))}
         <Divider sx={{ marginTop: "20px", marginBottom: "20px" }} />
         {secondaryMainMenu.map((item, i) => (
-          <div
+          <NavLink
+            to={item.url}
             key={i}
             className={`flex items-center py-1 my-2 cursor-pointer ${
               isLargeScreen ? "" : "justify-center"
@@ -118,19 +123,20 @@ export default function Sidebar({isLargeScreen}:SideBarProps): JSX.Element {
             <h4 className={`${isLargeScreen ? "ml-4 " : "hidden"}`}>
               {item.title}
             </h4>
-          </div>
+          </NavLink>
         ))}
       </div>
       <div className="self-end flex flex-wrap">
         {tertiaryMainMenu.map((item, i) => (
-          <div
+          <NavLink
+            to={item.url}
             className="flex items-center py-1 mx-4 my-2 cursor-pointer"
             key={i}
           >
             <h4 className={`${isLargeScreen ? "" : "hidden"} text-xs`}>
               {item.title}
             </h4>
-          </div>
+          </NavLink>
         ))}
         <br />
         <button

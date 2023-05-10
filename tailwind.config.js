@@ -16,7 +16,7 @@ module.exports = {
       },
       height: {
 				inherit: 'inherit',
-        mainScreen: 'calc(100vh - 3.5rem)'
+        mainScreen: 'calc(100vh - 4rem)'
 			},
 			width: {
 				inherit: 'inherit',

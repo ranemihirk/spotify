@@ -1,14 +1,15 @@
 type CardProps = {
     isLargeScreen: boolean;
+    key: number;
 };
-export default function Card({isLargeScreen}:CardProps): JSX.Element {
+export default function Card({isLargeScreen, key}:CardProps): JSX.Element {
   return (
-    <div className={`card group/maincard ${isLargeScreen ? "w-1/6 max-w-1/6 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-stone-700" : "w-1/2 max-w-1/2"} mx-2 bg-base-100 shadow-xl bg-stone-900`}>
+    <div className={`card group/maincard ${isLargeScreen ? "w-1/6 max-w-1/6 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-stone-700" : "w-1/2 max-w-1/2"} mx-2 bg-base-100 shadow-xl bg-stone-900`} key={key}>
       <figure className="p-4 relative">
         <img
           src="https://placehold.co/400"
           alt="Shoes"
-          className="aspect-square object-contain object-center"
+          className="aspect-square object-contain object-center rounded-md"
         />
         <img
           src="https://placehold.co/400"

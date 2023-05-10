@@ -6,6 +6,12 @@ const Default = lazy(
 const Layout = lazy(
   () => import(/* webpackChunkName: "VidtuRouter" */ "./component/Core/Layout")
 );
+const Home = lazy(
+  () => import(/* webpackChunkName: "VidtuRouter" */ "./component/Home")
+);
+const Search = lazy(
+  () => import(/* webpackChunkName: "VidtuRouter" */ "./component/Search")
+);
 
 export default function VidtuRouter() {
   const user = null;
@@ -21,7 +27,15 @@ export default function VidtuRouter() {
 					path: '',
 					element: (
 						<Suspense fallback={<>...</>}>
-							<Default />
+							<Home />
+						</Suspense>
+					),
+				},
+        {
+					path: 'search',
+					element: (
+						<Suspense fallback={<>...</>}>
+							<Search />
 						</Suspense>
 					),
 				},

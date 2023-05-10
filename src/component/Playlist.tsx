@@ -17,7 +17,7 @@ export default function Playlist({title, number, isLargeScreen}:PlaylistProps): 
       </div>
       <div className="flex">
         {new Array(number).fill(0).map((cell, idx) => (
-          <Card isLargeScreen={isLargeScreen} />
+          <Card isLargeScreen={isLargeScreen} key={idx} />
         ))}
       </div>
     </div>
