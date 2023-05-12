@@ -86,7 +86,7 @@ export default function Sidebar({ isLargeScreen }: SideBarProps): JSX.Element {
   return (
     <div
       className={`sidebar flex flex-col items-stretch bg-stone-950 text-new-white shadow-2xl ${
-        isLargeScreen ? "w-[30%] max-w-[30%] px-6 py-6" : "w-min px-2 py-2"
+        isLargeScreen ? "w-[20%] max-w-[20%] px-6 py-6" : "w-min px-2 py-2"
       }`}
     >
       <div>
